@@ -1,0 +1,9 @@
+{% if opus_list %}
+<ul>
+  {% for opus in opus_list %}
+  <li><a href="{% url 'catalogue:detail' opus.id %}">{{ opus.opus_title }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No opuses are available.</p>
+{% endif %}
