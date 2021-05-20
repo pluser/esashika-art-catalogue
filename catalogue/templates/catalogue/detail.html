@@ -1,11 +1,36 @@
 {% extends 'catalogue/base.html' %}
 {% block title %}Opus Detail: {{ opus.opus_title }}{% endblock %}
 {% block content %}
-<h1 class="title">
-  {{ opus.opus_title }}
-</h1>
-<p class="subtitle">
-  <img src='{{ opus.opus_image.url }}' alt="image of {{ opus.opus_title }}"></img>
-  {{ opus.opus_description }}
-</p>
+<div class="columns is-centered">
+	<div class="column has-text-centered">
+		<img src='{{ opus.opus_image.url }}' alt="image of {{ opus.opus_title }}"></img>
+	</div>
+</div>
+<div class="columns is-centered">
+	<div class="columns is-6 box">
+		<div class="column" style="display: flex;">
+		<div>
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>タイトル</th>
+						<td>{{ opus.opus_title }}</td>
+					</tr>
+					<tr>
+						<th>価格</th>
+						<td>10万円</td>
+					</tr>
+					<tr>
+						<th>状態</th>
+						<td>売約済み</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div style="display: flex; align-items: center;">
+			<p style="margin-left: 1em;">{{ opus.opus_description }}</p>
+		</div>
+		</div>
+	</div>
+</div>
 {% endblock %}
