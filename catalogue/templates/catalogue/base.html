@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% include 'catalogue/common_head.frag.html' %}
+		<title>{% block title %}Esashika Art Catalogue{% endblock %}</title>
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar">
+				<div class="navbar-brand">
+					<a class="navbar-item" href="#">Esashika Art Catalogue</a>
+				</div>
+				<div class="navbar-menu">
+					<div class="navbar-end">
+						<div class="navbar-item">
+							<div class="buttons">
+								<a class="button is-light">Contact</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<section class="section">
+				{% block content %}{% endblock %}
+			</section>
+			<footer class="footer">
+				<div class="content has-text-centered">
+					<p>Website is created by ESASHIKA Kaoru</p>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,9 +1,25 @@
+{% extends 'catalogue/base.html' %}
+{% block title %}Esashika Art Catalogue{% endblock %}
+{% block content %}
+
 {% if opus_list %}
-<ul>
-  {% for opus in opus_list %}
-  <li><a href="{% url 'catalogue:detail' opus.id %}">{{ opus.opus_title }}</a></li>
-  {% endfor %}
-</ul>
+<div class="tile is-ancestor is-vertical">
+	<div class="tile is-parent">
+		{% for opus in opus_list %}
+		<div class="tile is-child box is-4">
+			<a href="{% url 'catalogue:detail' opus.id %}">
+				<img src='{{ opus.opus_image.url }}' alt="a picture of {{ opus.opus_title }}"></img>
+				<p class="title" style="text-align: right;">{{ opus.opus_title }}</p>
+			</a>
+		</div>
+		{% if forloop.counter|divisibleby:3 %}
+	</div><div class="tile is-parent">
+		{% endif %}
+		{% endfor %}
+	</div>
+</div>
 {% else %}
 <p>No opuses are available.</p>
 {% endif %}
+
+{% endblock %}
